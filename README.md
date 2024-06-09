@@ -1,3 +1,6 @@
+## Website
+Try online: [https://amartha-test-anime-search-and-detail.vercel.app/](https://amartha-test-anime-search-and-detail.vercel.app/)
+
 # Mantine Next.js template
 
 This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
