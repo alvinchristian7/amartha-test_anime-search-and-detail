@@ -1,15 +1,15 @@
 import '@mantine/core/styles.css';
-import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { theme } from '../theme';
-import Store from '@/provider/store';
+import WithSearchBarLayout from './WithSearchBarLayout';
+import Providers from './providers';
 
 export const runtime = 'edge';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'Ultimate Anime Collection',
+  description: 'Full of animes, and some of them are yours!',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -24,10 +24,12 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <Store>
+        <Providers>
           <ReactQueryDevtools initialIsOpen={false} />
-          <MantineProvider theme={theme}>{children}</MantineProvider>
-        </Store>
+          <MantineProvider theme={theme}>
+            <WithSearchBarLayout>{children}</WithSearchBarLayout>
+          </MantineProvider>
+        </Providers>
       </body>
     </html>
   );

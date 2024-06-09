@@ -13,5 +13,6 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'import/extensions': 'off',
+    'jsx-a11y/media-has-caption': 'off',
   },
 };
