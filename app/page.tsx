@@ -75,6 +75,7 @@ export default function HomePage() {
                   params.set('page', String(page));
                   const prefetchNextList = () =>
                     queryClient.prefetchQuery(getAnimeListOptions(page, searchTextFromQuery));
+
                   return {
                     component: NextLink,
                     scroll: true,
@@ -99,6 +100,7 @@ export default function HomePage() {
                       queryClient.prefetchQuery(
                         getAnimeListOptions(futurePage, searchTextFromQuery)
                       );
+
                     return {
                       component: NextLink,
                       scroll: true,
@@ -107,6 +109,7 @@ export default function HomePage() {
                       onTouchStart: prefetchNextList,
                     };
                   }
+
                   return {};
                 }}
                 {...renderResponsive.paginationProps}
