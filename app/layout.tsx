@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css';
+import { Suspense } from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { theme } from '../theme';
@@ -24,12 +25,14 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <Providers>
-          <ReactQueryDevtools initialIsOpen={false} />
-          <MantineProvider theme={theme}>
-            <WithSearchBarLayout>{children}</WithSearchBarLayout>
-          </MantineProvider>
-        </Providers>
+        <Suspense>
+          <Providers>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <MantineProvider theme={theme}>
+              <WithSearchBarLayout>{children}</WithSearchBarLayout>
+            </MantineProvider>
+          </Providers>
+        </Suspense>
       </body>
     </html>
   );
