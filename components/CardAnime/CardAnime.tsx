@@ -12,7 +12,7 @@ export type BackgroundImageAnimeProps = {
 
 export function CardAnime(props: BackgroundImageAnimeProps) {
   return (
-    <Card shadow="sm" padding="xl" h="100%" component={NextLink} href={`/anime/detail/${props.id}`} prefetch>
+    <Card shadow="sm" padding="xl" h="100%" component={NextLink} href={`/anime/detail/${props.id}`}>
       <Card.Section>
         <Image src={props.srcImg} h={200} alt={props.title} data-testid="card-anime-image" />
       </Card.Section>
