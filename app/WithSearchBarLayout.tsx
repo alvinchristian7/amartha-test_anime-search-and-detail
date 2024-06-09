@@ -2,8 +2,8 @@
 
 import '@mantine/core/styles.css';
 import { useEffect, useState } from 'react';
-import { AppShell, CloseButton, Input, Paper } from '@mantine/core';
-import { IconSearch } from '@tabler/icons-react';
+import { ActionIcon, AppShell, CloseButton, Flex, Input, Paper } from '@mantine/core';
+import { IconChevronLeft, IconSearch } from '@tabler/icons-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback, useDidUpdate, useWindowScroll } from '@mantine/hooks';
 import { useMediaQueryFromBreakpoints } from '@/hooks/useMediaQueryFromBreakpoints';
@@ -61,29 +61,44 @@ export default function WithSearchBarLayout({ children }: { children: any }) {
     <AppShell header={{ height: { base: 75, sm: 90 } }}>
       <AppShell.Header>
         <Paper shadow="xs" p={renderResponsive.pSearchBarContainer} radius={0}>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (!isOnLandingPage) submitFormSearch(searchText);
-            }}
-          >
-            <Input
-              size="lg"
-              value={searchText}
-              onChange={(event) => handleSearchByText(event.target.value)}
-              placeholder="Search anime by title"
-              leftSection={<IconSearch size={16} />}
-              rightSectionPointerEvents="all"
-              rightSection={
-                <CloseButton
-                  aria-label="Clear input"
-                  onClick={() => handleSearchByText('')}
-                  style={{ display: searchText ? undefined : 'none' }}
-                />
-              }
-            />
-            <input type="submit" hidden />
-          </form>
+          <Flex gap="sm" align="center">
+            {pathname !== '/' && (
+              <ActionIcon
+                onClick={() => router.back()}
+                variant="subtle"
+                color="orange"
+                size="xl"
+                radius="xl"
+                aria-label="Settings"
+              >
+                <IconChevronLeft style={{ width: '70%', height: '70%' }} stroke={1.5} />
+              </ActionIcon>
+            )}
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (!isOnLandingPage) submitFormSearch(searchText);
+              }}
+              style={{ flex: 1 }}
+            >
+              <Input
+                size="lg"
+                value={searchText}
+                onChange={(event) => handleSearchByText(event.target.value)}
+                placeholder="Search anime by title"
+                leftSection={<IconSearch size={16} />}
+                rightSectionPointerEvents="all"
+                rightSection={
+                  <CloseButton
+                    aria-label="Clear input"
+                    onClick={() => handleSearchByText('')}
+                    style={{ display: searchText ? undefined : 'none' }}
+                  />
+                }
+              />
+              <input type="submit" hidden />
+            </form>
+          </Flex>
         </Paper>
       </AppShell.Header>
       <AppShell.Main>{children}</AppShell.Main>
