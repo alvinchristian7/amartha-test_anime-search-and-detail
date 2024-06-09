@@ -1,9 +1,10 @@
 'use client';
 
-import { Image, Paper, Skeleton, Stack, Table } from '@mantine/core';
+import { Paper, Skeleton, Stack, Table } from '@mantine/core';
 import { useQuery } from '@tanstack/react-query';
 import { getAnimeDetailOptions } from '@/api/anime';
 import { AnimeDetailParams } from '../layout';
+import { ImageFill } from '@/components/ImageFill/ImageFill';
 
 export default function SidebarSection({ params }: AnimeDetailParams) {
   const { data, isFetching } = useQuery(
@@ -15,7 +16,7 @@ export default function SidebarSection({ params }: AnimeDetailParams) {
       {data && (
         <Paper shadow="md" p="md" radius="lg">
           <Stack>
-            <Image src={data.images.webp.image_url} alt={data.title} height={240} />
+            <ImageFill src={data.images.webp.image_url} alt={data.title} boxProps={{ h: 240 }} />
             <Table striped withTableBorder>
               <Table.Tbody>
                 {[

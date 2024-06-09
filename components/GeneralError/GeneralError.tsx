@@ -1,4 +1,5 @@
-import { Text, Image, Group, Stack, Button, StackProps } from '@mantine/core';
+import { Text, Group, Stack, Button, StackProps } from '@mantine/core';
+import { ImageFill } from '../ImageFill/ImageFill';
 
 export type GeneralErrorProps = StackProps & {
   refetch: () => void;
@@ -7,7 +8,7 @@ export type GeneralErrorProps = StackProps & {
 export function GeneralError({ refetch, ...props }: GeneralErrorProps) {
   return (
     <Stack p="md" align="center" {...props}>
-      <Image w={160} h={160} src="/assets/icons/refresh-page.png" alt="Refresh Page" />
+      <ImageFill boxProps={{ w: 160, h: 160 }} src="/assets/icons/refresh-page.png" alt="Refresh Page" />
 
       <Text fw={500} size="lg" mt="md">
         Connection Timeout

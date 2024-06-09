@@ -1,8 +1,6 @@
 import { Box, Container, Flex, rem } from '@mantine/core';
 import HydrationAnimeDetail from './HydrationAnimeDetail';
 
-export const runtime = 'edge';
-
 export const metadata = {
   title: 'Ultimate Anime Collection',
   description: 'Full of animes, and some of them are yours!',

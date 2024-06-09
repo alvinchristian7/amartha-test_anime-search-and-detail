@@ -1,7 +1,7 @@
 import { generateArray } from '@/lib/generateVar';
 
 export const animeDetailMock = {
-  images: { webp: { image_url: 'https://mantine.dev/guides/next/' } },
+  images: { webp: { image_url: 'https://cdn.myanimelist.net/' } },
   title: 'Test title',
   year: 1994,
   synopsis:

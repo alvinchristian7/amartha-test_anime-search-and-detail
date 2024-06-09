@@ -9,13 +9,13 @@ describe('CardAnime component', () => {
         title="Test title"
         year={1994}
         desc="just a title"
-        srcImg="https://mantine.dev/guides/next/"
+        srcImg="https://cdn.myanimelist.net/"
         badges={['test', 'test2']}
       />
     );
     expect(screen.getByTestId('card-anime-image')).toHaveAttribute(
       'src',
-      'https://mantine.dev/guides/next/'
+      'https://cdn.myanimelist.net/'
     );
     expect(screen.getByTestId('card-anime-title')).toHaveTextContent('Test title (1994)');
     expect(screen.getByTestId('card-anime-desc')).toHaveTextContent('just a title');

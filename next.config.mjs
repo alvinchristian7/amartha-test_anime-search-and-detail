@@ -18,4 +18,14 @@ export default withSerwist(withBundleAnalyzer({
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.myanimelist.net',
+        port: '',
+        pathname: "/**",
+      },
+    ],
+  },
 }));

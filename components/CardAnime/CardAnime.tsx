@@ -1,5 +1,6 @@
-import { Text, Card, Image, Badge, Group } from '@mantine/core';
+import { Text, Card, Badge, Group } from '@mantine/core';
 import NextLink from 'next/link';
+import { ImageFill } from '../ImageFill/ImageFill';
 
 export type BackgroundImageAnimeProps = {
   id: number;
@@ -14,7 +15,7 @@ export function CardAnime(props: BackgroundImageAnimeProps) {
   return (
     <Card shadow="sm" padding="xl" h="100%" component={NextLink} href={`/anime/detail/${props.id}`}>
       <Card.Section>
-        <Image src={props.srcImg} h={200} alt={props.title} data-testid="card-anime-image" />
+        <ImageFill src={props.srcImg} boxProps={{ h: 200 }} alt={props.title} data-testid="card-anime-image" />
       </Card.Section>
 
       <Text fw={500} size="lg" mt="md" lineClamp={1} data-testid="card-anime-title">
