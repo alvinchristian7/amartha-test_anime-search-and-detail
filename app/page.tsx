@@ -80,6 +80,8 @@ export default function HomePage() {
                     component: NextLink,
                     scroll: true,
                     href: `${pathname}?${params.toString()}`,
+                    title: `Page ${page}`,
+                    'aria-label': `Page ${page}`,
                     onMouseEnter: prefetchNextList,
                     onTouchStart: prefetchNextList,
                   };
@@ -102,6 +104,8 @@ export default function HomePage() {
                       );
 
                     return {
+                      title: control,
+                      'aria-label': control,
                       component: NextLink,
                       scroll: true,
                       href: `${pathname}?${params.toString()}`,
@@ -110,7 +114,10 @@ export default function HomePage() {
                     };
                   }
 
-                  return {};
+                  return {
+                    title: control,
+                    'aria-label': control,
+                  };
                 }}
                 {...renderResponsive.paginationProps}
               />

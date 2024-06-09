@@ -19,8 +19,8 @@ export function GeneralError({ refetch, ...props }: GeneralErrorProps) {
       </Text>
 
       <Group gap={4}>
-        <Button onClick={refetch}>Retry</Button>
-        <Button variant="outline">Contact Support</Button>
+        <Button onClick={refetch} title="Retry" aria-label="Retry">Retry</Button>
+        <Button variant="outline" title="Contact Support" aria-label="Contact Support">Contact Support</Button>
       </Group>
     </Stack>
   );
