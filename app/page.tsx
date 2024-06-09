@@ -65,7 +65,7 @@ export default function HomePage() {
               </Skeleton>
             ))}
           </SimpleGrid>
-          {data.pagination.items.total > 0 && data.pagination.last_visible_page && (
+          {data.pagination.last_visible_page > 1 && (
             <Skeleton visible={isPending} width="auto" style={{ alignSelf: 'center' }}>
               <Pagination
                 value={activePage}
